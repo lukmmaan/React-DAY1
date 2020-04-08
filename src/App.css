@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.greencolor{
+  color: green
+}
+table,tr,th,tbody,thead{
+  border: 1px solid red;
+  padding: 10px;
+  border-collapse: collapse;
+}
