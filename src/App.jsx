@@ -69,9 +69,8 @@ function App() {
       stock: 3,
     },
   ];
-let idx
   const renderProduk = ()=>{
-    return arrBooks.map((val,index)=>{
+    return arrBooks.map((val)=>{
       return(
         <div className="col-6">
         <ProductCard productData={val}/>
