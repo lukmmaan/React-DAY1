@@ -12,7 +12,7 @@ const ProductCard = (props) => {
                 <div className="col-md-6">
                     <p style={{ fontSize: "10px", color: "grey" }}>{author}</p>
                     <p style={{ fontSize: "14px", fontWeight: "bold" }}>{title}</p>
-                    <p style={{ fontSize: "10px" }}>{review}/5</p>
+                    <p style={{ fontSize: "10px" }}>{review}/5 Review</p>
                     <p style={{ fontSize: "10px" }}>{desc}</p>
                     {
                         stock ?
