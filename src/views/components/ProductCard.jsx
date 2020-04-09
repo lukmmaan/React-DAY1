@@ -7,7 +7,7 @@ const ProductCard = (props) => {
     let hargaDiskon = price - (price * (discount / 100))
     hargaDiskon = hargaDiskon.toFixed(2)
     return (
-            <div className="row col-md-12 mb-5 ">
+            <div className="row col-md-8 mb-5">
                 <img src={image} className="col-md-6"/>
                 <div className="col-md-6">
                     <p style={{ fontSize: "10px", color: "grey" }}>{author}</p>
