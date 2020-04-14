@@ -73,3 +73,6 @@ border: 1px blue solid
   width: 10px;
   height: 250px;
 }
+.greywarna{
+  border: 1px solid rgb(163, 163, 163)
+}

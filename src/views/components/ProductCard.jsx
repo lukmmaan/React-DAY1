@@ -2,8 +2,7 @@ import React from "react"
 import '../../App.css'
 import '../components/bootstrap.css'
 const ProductCard = (props) => {
-    const { productData } = props
-    const { author, title, review, desc, price, discount, image, stock } = productData
+    const { author, title, review, desc, price, discount, image, stock } = props.productData
     let hargaDiskon = price - (price * (discount / 100))
     hargaDiskon = hargaDiskon.toFixed(2)
     return (

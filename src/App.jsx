@@ -10,6 +10,7 @@ import Crazy from "./crazy.png"
 import Handmaid from "./handmaid.png"
 import Educated from "./educated.png"
 import '../src/views/components/bootstrap.css'
+import InputScreen from './views/screen/InputScreen';
 function App() {
   let arr = ["Bandung", "Jakarta", "Tangerang"]
   // let arrBaru = ''
@@ -79,12 +80,13 @@ function App() {
     })
   }
   return (
-    <div>
-      <h1 className="App" style={{fontSize:"60px"}}>Hello World !</h1>
-      <hr/>
-      <div className="row">
-      {renderProduk()}
-      </div>
+    <div className="App">
+      <h1 className="App" style={{fontSize:"20px"}}>Hello World !</h1>
+      {/* <CounterScreen/> */}
+      <InputScreen/>
+      {/* <div className="row"> */}
+      {/* {renderProduk()} */}
+      {/* </div> */}
     </div>
   )
 }
