@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter, Route, Switch, withRouter} from "react-router-dom"
 import logo from './logo.svg';
 import './App.css';
 import NewScreen from "./views/screen/NewScreen"
@@ -11,6 +12,16 @@ import Handmaid from "./handmaid.png"
 import Educated from "./educated.png"
 import '../src/views/components/bootstrap.css'
 import InputScreen from './views/screen/InputScreen';
+import LifeCycleScreen from './views/screen/LifeCycleScreen'
+import HomeScreen from "./views/screen/HomeScreen"
+import InputLayar from "./views/screen/InputLayar"
+import PageNotFound from "./views/screen/PageNotFound"
+import Navbar from "./views/components/Navbar"
+import Navbar2 from "./views/components/navbar2"
+import ProfileScreen from "./views/screen/ProfileScreen"
+import Registrasi from '../src/views/screen/Registrasi';
+import Login from "../src/views/screen/Login"
+import Profile from "../src/views/screen/Profile"
 function App() {
   let arr = ["Bandung", "Jakarta", "Tangerang"]
   // let arrBaru = ''
@@ -80,15 +91,20 @@ function App() {
     })
   }
   return (
-    <div className="App">
-      <h1 className="App" style={{fontSize:"20px"}}>Hello World !</h1>
-      {/* <CounterScreen/> */}
-      <InputScreen/>
-      {/* <div className="row"> */}
-      {/* {renderProduk()} */}
-      {/* </div> */}
-    </div>
+    <>
+    <Navbar2/>
+      <Switch>
+        <Route exact path="/" component={HomeScreen}/>
+        <Route exact path="/registrasi" component={Registrasi}/>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/profile/:username" component={Profile}/>
+        {/* <Route exact path="/counter" component={CounterScreen}/>
+        <Route exact path="/input" component={InputLayar}/>
+        <Route exact path="/profile/:username" component={ProfileScreen}/> */}
+        <Route path="*" component={PageNotFound}/>
+      </Switch>
+      </>
   )
 }
 
-export default App;
+export default withRouter(App);

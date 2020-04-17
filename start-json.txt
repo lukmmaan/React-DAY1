@@ -1,0 +1,12 @@
+start npm -> buat react
+npx json-server --watch db.json -p 2000 -> buat json
+npx json-server --watch db.json -p 2000 -> start
+npx json-server db.json -p 2000
+npx json-server db.json -p 8080
+npx json-server db.json -p 3001
+
+--- CRUD ---
+CREATE -> .POST()
+READ -> .GET()
+UPDATE -> .PUT()
+DELETE -> .DELETE()
