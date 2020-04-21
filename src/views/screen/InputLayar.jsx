@@ -1,5 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { connect } from "react-redux"
 class InputScreen extends React.Component {
   state = {
     username: "",
@@ -41,11 +42,18 @@ class InputScreen extends React.Component {
         ></textarea>
         <p> {textbox.length} / 140</p>
         <Link to={"/profile/" + username}>
-          <input className="btn" type="button" value="Submit"/>
+          <input className="btn" type="button" value="Submit" />
         </Link>
+        <h3>{this.props.Helloworld}</h3>
+        <h3>{this.props.namaPengguna}</h3>
       </div>
     );
   }
 }
-
-export default InputScreen;
+const mapStateToProps = (state) => {
+  return {
+    Helloworld: state.haha.todoInput,
+    namaPengguna: state.user.username,
+  }
+}
+export default connect(mapStateToProps)(InputScreen);

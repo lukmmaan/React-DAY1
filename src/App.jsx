@@ -22,6 +22,8 @@ import ProfileScreen from "./views/screen/ProfileScreen"
 import Registrasi from '../src/views/screen/Registrasi';
 import Login from "../src/views/screen/Login"
 import Profile from "../src/views/screen/Profile"
+import TodoScreen from "../src/views/screen/TodoReduxScreen"
+import todo from './redux/reducers/todo';
 function App() {
   let arr = ["Bandung", "Jakarta", "Tangerang"]
   // let arrBaru = ''
@@ -97,7 +99,9 @@ function App() {
         <Route exact path="/" component={HomeScreen}/>
         <Route exact path="/registrasi" component={Registrasi}/>
         <Route exact path="/login" component={Login}/>
-        <Route exact path="/profile/:username" component={Profile}/>
+        <Route exact path="/profile/:username" component={Profile}/> 
+        <Route exact path="/input" component={InputLayar}/>
+        <Route exact path="/todo" component={TodoScreen}/>
         {/* <Route exact path="/counter" component={CounterScreen}/>
         <Route exact path="/input" component={InputLayar}/>
         <Route exact path="/profile/:username" component={ProfileScreen}/> */}
