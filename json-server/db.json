@@ -50,6 +50,13 @@
       "role": "",
       "fullName": "",
       "id": 10
+    },
+    {
+      "username": "bagong",
+      "password": "koko",
+      "role": "user",
+      "fullName": "koko",
+      "id": 11
     }
   ]
 }

@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import Axios from "axios"
 import { API_URL } from "../../Constants/API"
 import { Redirect } from "react-router-dom"
+import { connect } from "react-redux"
+import { onClickLogin } from "../../redux/actions"
 class Login extends Component {
     state = {
         username: "",
@@ -22,12 +24,12 @@ class Login extends Component {
             .then((res) => {
                 // console.log(res.data)
                 if (res.data.length >= 1) {
-                    return (
-                        // alert("selamat datang " + username)
-                        this.setState({
-                            isLoggedin: true
-                        })
-                    )
+
+                    // alert("selamat datang " + username)
+                    this.setState({
+                        isLoggedin: true
+                    })
+                    this.props.onClickLogin(username)
                 }
                 else {
                     alert("Username/password anda salah")
@@ -57,13 +59,18 @@ class Login extends Component {
                         <input value={username} onChange={(e) => this.inputHandler(e, "username")} className="form-control mb-2" type="text" style={{ width: "100%" }} placeholder="Username" />
                         <input value={password} onChange={(e) => this.inputHandler(e, "password")} className="form-control mb-2" type="text" style={{ width: "100%" }} placeholder="Password" />
                         <input onClick={this.loginFungsi} className="btn btn-primary" type="submit" style={{ width: "100%" }} value="Login" />
-                    </div>
+                    </div>  
                 </div>
             )
         }
-        else{
+        else {
             return <Redirect to={`/profile/${username}`}></Redirect>
         }
     }
 }
-export default Login
+const mapStateToProps = (state) => {
+    return {
+        user: state.user.username
+    }
+}
+export default connect(mapStateToProps, { onClickLogin })(Login)

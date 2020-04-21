@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import Axios from "axios"
-import {connect} from "react-redux"
+
 import { API_URL } from "../../Constants/API"
-import {onClickLogin} from "../../redux/actions"
+
 class Profile extends Component {
     state = {
         userlist: [],
@@ -23,7 +23,6 @@ class Profile extends Component {
                     fullNama:this.state.userlist[0].fullName,
                     roleOrang:this.state.userlist[0].role
                 })
-                this.props.onClickLogin(this.state.nama)
 
                 // console.log(this.state.nama+this.state.fullNama+this.state.roleOrang)
             })
@@ -49,16 +48,12 @@ class Profile extends Component {
                 <h3>Nama Lengkap Anda   : {fullNama}</h3>
                 <h4>Nama Panggilan Anda : {nama}</h4>
                 <h4>Role Anda Sebagai   : {roleOrang}</h4>
-                <h4>{this.props.user}</h4>
+
             </div>
         </div>
 
         )
     }
 }
-const mapStateToProps =(state)=>{
-    return{
-        user: state.user.username
-    }
-}
-export default connect(mapStateToProps,{onClickLogin})(Profile)
+
+export default Profile
