@@ -45,18 +45,32 @@
       "id": 9
     },
     {
-      "username": "",
-      "password": "",
-      "role": "",
-      "fullName": "",
-      "id": 10
-    },
-    {
       "username": "bagong",
       "password": "koko",
       "role": "user",
       "fullName": "koko",
       "id": 11
+    },
+    {
+      "username": "jokowi",
+      "password": "123123",
+      "role": "user",
+      "fullName": "joko widodo",
+      "id": 12
+    },
+    {
+      "username": "budiono",
+      "password": "123123",
+      "role": "user",
+      "fullName": "Bapak Budiono",
+      "id": 13
+    },
+    {
+      "username": "peter",
+      "password": "123123",
+      "role": "user",
+      "fullName": "peter parker",
+      "id": 14
     }
   ]
 }

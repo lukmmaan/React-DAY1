@@ -2,8 +2,8 @@ import React, { Component } from "react"
 import Axios from "axios"
 import { API_URL } from "../../Constants/API"
 import { Redirect } from "react-router-dom"
-import { connect } from "react-redux"
-import { onClickLogin } from "../../redux/actions"
+import { onClickLogin,loginHandler } from "../../redux/actions"
+import {connect} from 'react-redux'
 class Login extends Component {
     state = {
         username: "",
@@ -15,29 +15,11 @@ class Login extends Component {
     }
     loginFungsi = () => {
         const { username, password } = this.state
-        Axios.get(`${API_URL}/users`, {
-            params: {
-                username: username.toLowerCase(),
-                password: password
-            }
-        })
-            .then((res) => {
-                // console.log(res.data)
-                if (res.data.length >= 1) {
-
-                    // alert("selamat datang " + username)
-                    this.setState({
-                        isLoggedin: true
-                    })
-                    this.props.onClickLogin(username)
-                }
-                else {
-                    alert("Username/password anda salah")
-                }
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+        const userData = {
+            username,
+            password
+        }
+        this.props.onLogin(userData)
     }
     render() {
         const { username, password, isLoggedin } = this.state
@@ -45,6 +27,7 @@ class Login extends Component {
             return (
                 <div className="App">
                     <h3 className="mb-2">Login</h3>
+                    <p>username : {this.props.user.username}</p>
                     <div
                         className="container"
                         style={{
@@ -70,7 +53,10 @@ class Login extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        user: state.user.username
+        user: state.user
     }
 }
-export default connect(mapStateToProps, { onClickLogin })(Login)
+const mapDispatchtoProps ={
+    onLogin: loginHandler
+}
+export default connect(mapStateToProps, mapDispatchtoProps)(Login)

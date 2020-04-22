@@ -21,17 +21,21 @@ import Navbar2 from "./views/components/navbar2"
 import ProfileScreen from "./views/screen/ProfileScreen"
 import Registrasi from '../src/views/screen/Registrasi';
 import Login from "../src/views/screen/Login"
+import Cookie from "universal-cookie"
 import Profile from "../src/views/screen/Profile"
 import TodoScreen from "../src/views/screen/TodoReduxScreen"
 import todo from './redux/reducers/todo';
-function App() {
-  let arr = ["Bandung", "Jakarta", "Tangerang"]
+
+const cookieObject = new Cookie()
+
+class App extends React.Component {
+  arr = ["Bandung", "Jakarta", "Tangerang"]
   // let arrBaru = ''
   // for (let i = 0; i < arr.length; i++) {
   //   arrBaru += arr[i] + ' '
   // }
-  const renderArr = () =>{
-     return arr.map(val => {
+  renderArr = () =>{
+     return this.arr.map(val => {
       return (
         // <>
         //   <p>{val}</p>
@@ -41,7 +45,7 @@ function App() {
       )
     })
   }
-  let arrBooks = [
+  arrBooks = [
     {
       author: "Margaret Atwood",
       title: "The handmaid's tale",
@@ -83,8 +87,8 @@ function App() {
       stock: 3,
     },
   ];
-  const renderProduk = ()=>{
-    return arrBooks.map((val)=>{
+  renderProduk = ()=>{
+    return this.arrBooks.map((val)=>{
       return(
         <div className="col-6">
         <ProductCard productData={val}/>
@@ -92,23 +96,26 @@ function App() {
      )
     })
   }
-  return (
-    <>
-    <Navbar2/>
-      <Switch>
-        <Route exact path="/" component={HomeScreen}/>
-        <Route exact path="/registrasi" component={Registrasi}/>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/profile/:username" component={Profile}/> 
-        <Route exact path="/input" component={InputLayar}/>
-        <Route exact path="/todo" component={TodoScreen}/>
-        {/* <Route exact path="/counter" component={CounterScreen}/>
-        <Route exact path="/input" component={InputLayar}/>
-        <Route exact path="/profile/:username" component={ProfileScreen}/> */}
-        <Route path="*" component={PageNotFound}/>
-      </Switch>
-      </>
-  )
+  render(){
+    return (
+      <>
+      <Navbar2/>
+        <Switch>
+          <Route exact path="/" component={HomeScreen}/>
+          <Route exact path="/registrasi" component={Registrasi}/>
+          <Route exact path="/login" component={Login}/>
+          <Route exact path="/profile/:username" component={Profile}/> 
+          <Route exact path="/input" component={InputLayar}/>
+          <Route exact path="/todo" component={TodoScreen}/>
+          {/* <Route exact path="/counter" component={CounterScreen}/>
+          <Route exact path="/input" component={InputLayar}/>
+          <Route exact path="/profile/:username" component={ProfileScreen}/> */}
+          <Route path="*" component={PageNotFound}/>
+        </Switch>
+        </>
+    )
+  }
+  
 }
 
 export default withRouter(App);
