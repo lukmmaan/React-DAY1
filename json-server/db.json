@@ -71,6 +71,20 @@
       "role": "user",
       "fullName": "peter parker",
       "id": 14
+    },
+    {
+      "username": "sby",
+      "password": "123123",
+      "role": "user",
+      "fullName": "Susilo Bambang Yudoyono",
+      "id": 15
+    },
+    {
+      "username": "ariel",
+      "password": "123123",
+      "role": "user",
+      "fullName": "ariel noah",
+      "id": 16
     }
   ]
 }

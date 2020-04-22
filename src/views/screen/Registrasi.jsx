@@ -51,6 +51,7 @@ class Registrasi extends Component {
                     <input value={role}onChange={(e) => this.inputHandler(e, "role")} className="form-control mb-3" type="text" style={{ width: "100%" }} placeholder="Role" />
                     <input  onClick={this.regisSubmit} className="btn btn-primary" type="submit" style={{ width: "100%" }} value="Register" />
                 </div>
+                <p className="App">{this.props.user.fullName}</p>
             </>
         )
         // disabled={this.state.isLoading}
