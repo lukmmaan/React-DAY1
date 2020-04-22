@@ -85,6 +85,13 @@
       "role": "user",
       "fullName": "ariel noah",
       "id": 16
+    },
+    {
+      "username": "luna",
+      "password": "123123",
+      "role": "user",
+      "fullName": "luna maya",
+      "id": 17
     }
   ]
 }
