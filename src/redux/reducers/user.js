@@ -1,6 +1,6 @@
 const init_state = {
     id: 0,
-    username: "Doraemon",
+    username: "",
     fullName: "",
     role: "",
     testing: "",
@@ -20,6 +20,10 @@ export default (state = init_state, action) => {
     }
     else if (action.type === "ON_LOGIN_FAIL") {
         return { ...state, errMsg:action.payload};
+    }
+    else if(action.type== "ON_LOGOUT_SUCCESS"){
+        const {username,fullName,role,id} = action.payload
+        return{...state, username:username,fullName:fullName,role:role,id:id}
     }
     return { ...state }
 }

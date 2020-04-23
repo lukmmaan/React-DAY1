@@ -30,7 +30,7 @@ export const loginHandler = (userData) => {
                 })
             }
             else{
-                // alert("tidak masuk kaka")
+                alert("username/password salah")
                 dispatch({
                     type:"ON_LOGIN_FAIL",
                     payload: "Username / Password Salah"
@@ -80,6 +80,50 @@ export const regisHandler =(userData)=>{
         .catch((err) => { //error
             // alert("beda")
             console.log(err)
+        })
+    }
+}
+
+export const userKeepLogin =(userData)=>{
+    const {id} = userData
+    return (dispatch)=>{
+        Axios.get(`${API_URL}/users`,{
+            params:{
+                id:id
+            }
+        })
+        .then((res)=>{
+            if (res.data.length>0) {
+                // alert("masuk dong kaka")
+                dispatch({
+                    type:"ON_LOGIN_SUCCESS",
+                    payload: res.data[0]
+                })
+            }
+            else{
+                // alert("tidak masuk kaka")
+                dispatch({
+                    type:"ON_LOGIN_FAIL",
+                    payload: "Username / Password Salah"
+                })
+            }
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+}
+
+export const logoutHandler =()=>{
+    return(dispatch)=>{
+        dispatch({
+            type:"ON_LOGOUT_SUCCESS",
+            payload: {
+                id: 0,
+                username: "",
+                fullName: "",
+                role: "",
+            }
         })
     }
 }

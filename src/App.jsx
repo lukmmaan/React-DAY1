@@ -25,7 +25,8 @@ import Cookie from "universal-cookie"
 import Profile from "../src/views/screen/Profile"
 import TodoScreen from "../src/views/screen/TodoReduxScreen"
 import todo from './redux/reducers/todo';
-
+import {connect} from 'react-redux'
+import {userKeepLogin} from "../src/redux/actions"
 const cookieObject = new Cookie()
 
 class App extends React.Component {
@@ -96,6 +97,13 @@ class App extends React.Component {
      )
     })
   }
+  componentDidMount(){ //ketrigger setelah 1x render
+    let cookieResult = cookieObject.get("authData")
+    console.log(cookieResult)
+    if (cookieResult) {
+      this.props.userKeepLogin(cookieResult)
+    }
+  }
   render(){
     return (
       <>
@@ -115,7 +123,13 @@ class App extends React.Component {
         </>
     )
   }
-  
 }
-
-export default withRouter(App);
+const mapStateToProps =(state)=>{
+  return{
+    user: state.user,
+  }
+}
+const mapDispatchToProps ={
+  userKeepLogin:userKeepLogin
+}
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(App));

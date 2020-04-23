@@ -92,6 +92,34 @@
       "role": "user",
       "fullName": "luna maya",
       "id": 17
+    },
+    {
+      "username": "faras",
+      "password": "123123",
+      "role": "user",
+      "fullName": "faras ammar",
+      "id": 18
+    },
+    {
+      "username": "sule",
+      "password": "123123",
+      "role": "user",
+      "fullName": "sule prikitiw",
+      "id": 19
+    },
+    {
+      "username": "avenged",
+      "password": "123123",
+      "role": "user",
+      "fullName": "avenged sevenfold",
+      "id": 20
+    },
+    {
+      "username": "cookies",
+      "password": "123123",
+      "role": "user",
+      "fullName": "cookies and cream",
+      "id": 21
     }
   ]
 }
